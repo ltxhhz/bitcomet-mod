@@ -1,0 +1,37 @@
+[package]
+name = "bitcomet-mod"
+version = "0.1.0"
+edition = "2021"
+# build = "build.rs"
+
+[dependencies]
+# lazy_static = "1.4.0"
+# nwg = { version = "1.0.12", package = "native-windows-gui" }
+# nwd = { version = "1.0.3", package = "native-windows-derive" }
+# native-windows-derive = "1.0.3" # Optional. Only if the derive macro is used.
+# windows = { version = "0.52.0", features = [
+#   "Win32_Graphics_Gdi",
+#   "Win32_System_LibraryLoader",
+#   "Win32_UI_WindowsAndMessaging",
+#   "Win32_Foundation",
+# ] }
+# fltk = { version = "1.4.22", features = ["fltk-bundled"] }
+fltk = "1.4.22"
+regex = "1.10.2"
+hex = "0.4.3"
+nfd2 = "0.3.1"
+# winapi = "0.3.9"
+# privilege = "0.3.0"
+
+[build-dependencies]
+winres = "0.1.12"
+
+
+# [build]
+# rustflags = [
+#     "-C", "link-arg=/SUBSYSTEM:WINDOWS",
+# ]
+
+# [[bin]]
+# name = "main"
+# path = "src/main.rs"
