@@ -27,7 +27,8 @@ nfd2 = "0.3.1"
 winres = "0.1.12"
 
 
-# [build]
+[build]
+target = ["x86_64-pc-windows-msvc"]
 # rustflags = [
 #     "-C", "link-arg=/SUBSYSTEM:WINDOWS",
 # ]
