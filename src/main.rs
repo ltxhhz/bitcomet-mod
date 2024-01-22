@@ -2,6 +2,7 @@
 use fltk::{
   app::App,
   button::Button,
+  dialog,
   frame::Frame,
   group::{experimental::Terminal, Flex},
   input::Input,
@@ -15,8 +16,9 @@ use std::{
   ffi::OsStr,
   fs::{copy, metadata, read_dir, remove_file, OpenOptions},
   io::Read,
-  os::windows::fs::FileExt,
+  os::windows::{fs::FileExt, process::CommandExt},
   path::{Path, PathBuf},
+  process::{Command, Stdio},
 };
 
 fn main() {
@@ -53,7 +55,27 @@ fn main() {
       }
     }
   });
+  let mut row2 = Flex::default().row();
   let mut start_btn = Button::default().with_label("启动！");
+  let mut github = Button::default().with_label("GitHub");
+  github.set_callback(|_| {
+    let url = "https://github.com/ltxhhz/bitcomet-mod";
+    match Command::new("cmd")
+      .args(&["/C", "start", url])
+      .stdout(Stdio::null())
+      .stderr(Stdio::null())
+      .creation_flags(0x08000000)
+      .spawn()
+    {
+      Ok(_) => {}
+      Err(_) => {
+        dialog::input_default("", url);
+      }
+    }
+  });
+  row2.fixed(&start_btn, 0);
+  row2.fixed(&github, 50);
+  row2.end();
   let folder_input_cb2 = folder_input.clone();
   Frame::default();
   let term = Terminal::default();
@@ -69,7 +91,7 @@ fn main() {
     }
   });
   col.fixed(&row1, 50);
-  col.fixed(&start_btn, 50);
+  col.fixed(&row2, 50);
   col.fixed(&term, 180);
   col.end();
   // my_window.resizable(&row1);

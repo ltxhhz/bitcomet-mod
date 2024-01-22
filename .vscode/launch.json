@@ -7,15 +7,15 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug executable 'bitcomt-mod'",
+      "name": "Debug executable 'bitcomet-mod'",
       "cargo": {
         "args": [
           "build",
-          "--bin=bitcomt-mod",
-          "--package=bitcomt-mod"
+          "--bin=bitcomet-mod",
+          "--package=bitcomet-mod"
         ],
         "filter": {
-          "name": "bitcomt-mod",
+          "name": "bitcomet-mod",
           "kind": "bin"
         }
       },
@@ -25,16 +25,16 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug unit tests in executable 'bitcomt-mod'",
+      "name": "Debug unit tests in executable 'bitcomet-mod'",
       "cargo": {
         "args": [
           "test",
           "--no-run",
-          "--bin=bitcomt-mod",
-          "--package=bitcomt-mod"
+          "--bin=bitcomet-mod",
+          "--package=bitcomet-mod"
         ],
         "filter": {
-          "name": "bitcomt-mod",
+          "name": "bitcomet-mod",
           "kind": "bin"
         }
       },

@@ -13,7 +13,7 @@ dependencies = [
 
 [[package]]
 name = "bitcomet-mod"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "fltk",
  "hex",
